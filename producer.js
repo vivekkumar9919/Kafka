@@ -1,7 +1,7 @@
 const { kafka } = require('./client')
 
-async function initProducer(){
-    const producer= kafka.producer()
+async function initProducer() {
+    const producer = kafka.producer()
     // Connect producer
     await producer.connect();
 
@@ -9,8 +9,8 @@ async function initProducer(){
     await producer.send({
         topic: 'Testing-topic-1',
         messages: [
-            { key: 'key1', value: 'testing message 3' },
-            { key: 'key2', value: 'testing message 4' }
+            { key: 'key1', value: 'testing message 0', partition: 0 },
+            { key: 'key2', value: 'testing message 1', partition: 1 }
         ],
     })
 

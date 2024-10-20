@@ -1,20 +1,21 @@
 const { kafka } = require('./client'); 
-async function initConsumer() {
+
+async function initConsumer(consumerId) {
     const consumer = kafka.consumer({ groupId: "testing-consumer" });
 
     try {
         // Connect the consumer
         await consumer.connect();
-        console.log('Consumer connected.');
+        console.log(`Consumer ${consumerId} connected.`);
 
         // Subscribe to topics
         await consumer.subscribe({ topics: ["Testing-topic-1"], fromBeginning: true });
-        console.log('Subscribed to topic: Testing-topic-1');
+        console.log(`Consumer ${consumerId} subscribed to topic: Testing-topic-1`);
 
         // Consume messages
         await consumer.run({
             eachMessage: async ({ topic, partition, message }) => {
-                console.log({
+                console.log(`Consumer ${consumerId}:`, {
                     key: message.key ? message.key.toString() : null, 
                     topic,
                     partition,
@@ -24,8 +25,10 @@ async function initConsumer() {
             },
         });
     } catch (error) {
-        console.error('Error in consumer:', error);
+        console.error(`Error in consumer ${consumerId}:`, error);
     }
 }
 
-initConsumer();
+// Initialize two consumers
+initConsumer('1');
+initConsumer('2');
