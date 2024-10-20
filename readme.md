@@ -61,7 +61,7 @@ Kafka is employed across various industries for numerous applications, including
 
 1. **Clone the Repository**
    ```bash
-   git clone <your-repo-url>
+   git clone https://github.com/vivekkumar9919/Kafka
    cd kafka
 2. **Install Dependencies**
 Navigate to the project directory and install the required Node.js packages:
