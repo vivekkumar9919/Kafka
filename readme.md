@@ -3,6 +3,8 @@
 ## Overview
 This repository contains a basic setup for Apache Kafka, including a producer and consumer. Apache Kafka is a distributed event streaming platform designed for high-throughput, fault-tolerant, real-time data processing. It allows applications to publish and subscribe to streams of records efficiently, making it a popular choice for building data pipelines and streaming applications.
 
+![alt text](image.png)
+
 ## Basic Concepts of Kafka
 
 ### 1. What is Kafka?
